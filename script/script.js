@@ -15,15 +15,15 @@
 var dataArray = [],
     margin = {top: 20, right: 30, bottom: 7, left: 30},
     height = 400,
-    width = 500,
+    width = 470,
     barOffset = 5,
     color = "ff000f",
     colorArray = ['#0fea68', '#16a085', '#e9d460', '#e98b39', '#a53232', '#ff3333'];
 
 // CREATE D3 GRAPH
 var graph = d3.selectAll('#chart').append('svg')
-    .attr('width', 500)
-    .attr('height', 400)
+    .attr('width', width)
+    .attr('height', height)
     .attr('class', 'chart')
     .style('background', '#e7e7e7');
 
