@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Informotion Team 4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Datavisualization of trashsbins in the centre of Amsterdam with data provided by the City of Amsterdam. Made by Team 4 of V2-2015/2016 of CMD Amsterdam.">
+        <meta name="author" content="Emiel Zuurbier, Jelle Bot, Youssef Bargha">
+
+        <link rel="icon" href="media/100.svg" type="image/x-icon"/>
+        <link rel="shortcut icon" type="image/svg" href="media/100.svg"/>
+        <!-- BOOTSTRAP AND LEAFLET CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+        <link rel="stylesheet" href="style/MarkerCluster.css"/>
+        <!-- STYLE.CSS -->
+        <link href="style/style.css" rel="stylesheet"/>
+        <!-- JQUERY AND BOOTSTRAP -->
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- D3 & TWEENMAX -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+        <!-- LEAFLET -->
+        <script src="script/leaflet.js"></script>
+        <script src="script/leaflet.markercluster.js"></script>
+        <!-- ANIMATIONS -->
+        <script src="script/animate.js"></script>
+    </head>
+
+    <body>
+
+        <main>
+            <div id="map"></div>
+        </main>
+        <nav>
+            <div class="aside-icon">
+                <img src="media/icondashboard.svg" alt="dashboard button"/>
+            </div>
+            <ul>
+                <li>Legenda <small>vulwaarde prullenbak (%)</small></li>
+                <li><img class="img-responsive" src="media/0.svg" alt="0svg"/><br>0%</li>
+                <li><img class="img-responsive" src="media/25.svg" alt="25svg"/><br>25%</li>
+                <li><img class="img-responsive" src="media/50.svg" alt="50svg"/><br>50%</li>
+                <li><img class="img-responsive" src="media/75.svg" alt="75svg"/><br>75%</li>
+                <li><img class="img-responsive" src="media/100.svg" alt="100svg"/><br>100%</li>
+                <li><img class="img-responsive" src="media/125.svg" alt="125svg"/><br>125%</li>
+            </ul>
+        </nav>
+        <aside>
+            <div class="container-fluid">
+                <section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <header>
+                                <img src="media/gemeenteLogo.png" alt="Gemeente Amsterdam"/>
+                                <h3>Dashboard Gemeente Amsterdam</h3>
+                                <h4>Een datavisualisatie van prullenbakken binnen het centrum van Amsterdam</h4>
+                            </header>
+                        </div>
+                    </div>
+                    <div class="row row-bottom">
+                        <div class="col-md-12">
+                            <div id="chart"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <!-- DATASETS AND DATASCRIPTS -->
+        <script src="data/input.js"></script>
+        <script src="data/area.js"></script>
+        <script src="data/prullenbakGeolocaties.js"></script>
+        <script src="script/script.js"></script>
+
+    </body>
+
+</html>
