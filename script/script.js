@@ -172,7 +172,7 @@ var areaData = L.geoJson(area, {
     style: areaStyle,
     onEachFeature: function (feature, layer) {
         "use strict";
-        layer.bindPopup("Dit is gebied: " + "<h3>" + feature.properties.Meetgebied + "</h3>" + "<i>" + feature.properties.id + "</i>");
+        layer.bindPopup("Dit is gebied: " + "<h3>" + feature.properties.Meetgebied + "</h3>");
     }
 });
 
