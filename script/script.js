@@ -13,24 +13,19 @@
 
 // VARIABLES FOR D3
 var dataArray = [],
-    dataOutput = [],
-    dataOutput2 = [],
     margin = {top: 20, right: 30, bottom: 7, left: 30},
-    height = 400 - margin.top - margin.bottom,
-    width = 500 - margin.left - margin.right,
-    barWidth = width / dataArray.length,
+    height = 400,
+    width = 500,
     barOffset = 5,
-    color = "ff000f";
+    color = "ff000f",
+    colorArray = ['#0fea68', '#16a085', '#e9d460', '#e98b39', '#a53232', '#ff3333'];
 
 // CREATE D3 GRAPH
 var graph = d3.selectAll('#chart').append('svg')
     .attr('width', 500)
     .attr('height', 400)
     .attr('class', 'chart')
-    .style('background', '#e7e7e7'),
-    colors = d3.scale.linear()
-    .domain([0, dataArray.length])
-    .range(['#e01a71', '#f38bfc']);
+    .style('background', '#e7e7e7');
 
 
 // UPDATE AND DATA CREATION FUNCTION FOR D3
@@ -45,49 +40,28 @@ function updateData() {
         .domain(d3.range(0, dataArray.length))
         .rangeBands([0, width]),
 
-        xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom"),
-
-        yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left")
-        .ticks(6, ""),
-
-        yGuide = d3.select('.chart').append('g');
-    yAxis(yGuide);
-    yGuide.attr('transform', 'translate(30, 10)')
-        .style('fill', '#999999');
-
-    $('.bars').remove();
+        colors = d3.scale.linear()
+        .domain([0, dataArray.length])
+        .range(['#0fea68', '#16a085', '#e9d460', '#e98b39', '#a53232', '#ff3333']);
 
     graph.selectAll('rect')
         .data(dataArray)
         .enter()
         .append('rect')
-            .style('fill', "#ff000f")
+            .style('fill', function (d, i) { return colorArray[i]; })
             .attr('class', 'bars')
             .attr('width', xScale.rangeBand() - 10)
             .attr('x', function (d, i) {  return xScale(i); })
             .attr('height', 0)
             .attr('y', height)
-            .attr("transform", "translate(" + (margin.left + 5) + ", 0)");
+            .attr('transform', 'translate(' + barOffset + ', 0)');
 
     graph.selectAll('rect').transition().duration(1200)
         .attr('height', function (d) { return yScale(d); })
         .attr('y', function (d) { return height - yScale(d); })
         .ease('elastic');
 
-    $('.chart g').remove();
-
-    graph.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(" + margin.left + "," + height + ")")
-        .style("fill", "#999999")
-        .call(xAxis);
-//        .tickValues("0%", "25%", "50%", "75%", "100%", "125%");
 }
-
 
 /*------------------------------------------------------------LEAFLET */
 
